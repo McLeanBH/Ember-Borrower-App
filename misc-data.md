@@ -71,3 +71,30 @@ DELETE /api/friends/:id
 borrower's backend: https://github.com/abuiles/borrowers-backend
 
 Once we have created our own instance on Heroku, we need to install Heroku Toolbelt18 and check our application’s log with heroku logs -t --app my-app-name.
+
+- whenever we want to access a property of an EmberObject, we need to use this.get('propertyName').
+- If we want to change the property of an object, we use this.set(‘propertyName’, ‘newvalue’). 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
