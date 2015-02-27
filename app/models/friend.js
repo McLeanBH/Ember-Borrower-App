@@ -5,6 +5,7 @@
 // Ember-Data exports by default a namespace (known as DS) that exposes all the
 // classes and functions defined in http://emberjs.com/api/data.
 import DS from 'ember-data';
+import Ember from 'ember';
 
 // Define the default export for this model, which will be a subclass
 // of DS.Model.
@@ -16,13 +17,13 @@ import DS from 'ember-data';
 // could have written
 // import Friend from './friend';
 
-export default DS.Model.extend({
-// DS.attr is the standard way to define attributes with Ember-Data
-  firstName: DS.attr('string'),
-// Defines an attribute called lastName of type **string**
-  lastName: DS.attr('string'),
-// Ember-Data expects the attribute **email** on the friend's payload
+export default DS.Model.extend({ // DS.attr is the standard way to define attributes with Ember-Data
+  firstName: DS.attr('string'), // Defines an attribute called lastName of type **string**
+  lastName: DS.attr('string'), // Ember-Data expects the attribute **email** on the friend's payload
   email: DS.attr('string'),
   twitter: DS.attr('string'),
-  totalArticles: DS.attr('number')
+  totalArticles: DS.attr('number'),
+  fullName: Ember.computed('firstName', 'lastName', function() {
+    return this.get('firstName') + ' ' + this.get('lastName'); // The computed property depends on firstName and lastName. Any time either of those properties changes, so will the value of fullName.
+  })
 });
