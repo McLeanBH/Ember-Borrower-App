@@ -76,12 +76,23 @@ Once we have created our own instance on Heroku, we need to install Heroku Toolb
 - If we want to change the property of an object, we use this.set(‘propertyName’, ‘newvalue’).
 
 
+==== UPDATING A FRIEND PROFILE ====
+1. Create a route with the ember generator. 2. Fix path in routes.
+3. Update the template.
+4. Add Controller and actions.
+
+Running: $ ember g route friends/edit --path=:friend_id/edit
+Creates: - app/routes/friends/edit.js
+         - app/templates/friends/edit.hbs
+        - tests/unit/routes/friends/edit-test.js
 
 
-
-
-
-"{{link-to's}}"
+HELPER: "{{link-to's}}"
+{{#link-to 'friends.show' friend}} --> alt
+{{#link-to 'friends.show' friend.id}} --> alt
 
 {{#link-to 'friends.show' friend}}
-{{#link-to 'friends.show' friend.id}}
+  {{friend.firstName}} {{friend.lastName}}
+{{/link-to}}
+
+To transition from a controller, we have been using this.transitionToRoute. It’s a helper that behaves similarly to the {{link-to}} helper but from within a controller. If we were in a Route, we could have used this.transitionTo.
